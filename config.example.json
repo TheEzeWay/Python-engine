@@ -1,0 +1,80 @@
+{
+  "run": {
+    "name": "mnq_sample_run",
+    "data_path": "data/sample_mnq_databento.csv",
+    "output_dir": "outputs",
+    "mode": "optimize"
+  },
+  "data": {
+    "input_type": "ohlcv_1m",
+    "timezone": "UTC",
+    "timestamp_column": "ts_event",
+    "delimiter": ",",
+    "schema_map": {
+      "open": "open",
+      "high": "high",
+      "low": "low",
+      "close": "close",
+      "volume": "volume"
+    },
+    "resample": {
+      "enabled": false,
+      "rule": "1min"
+    }
+  },
+  "strategy": {
+    "trend_renko_size": 15.0,
+    "entry_renko_size": 5.0,
+    "min_trend_blocks": 2,
+    "pullback_min_blocks": 2,
+    "pullback_max_blocks": 4,
+    "target_points": 24.0,
+    "stop_points": 12.0,
+    "break_even_trigger": 10.0,
+    "break_even_offset": 1.0,
+    "trailing": {
+      "enabled": true,
+      "trigger_points": 14.0,
+      "distance_points": 8.0
+    },
+    "filters": {
+      "session": {
+        "enabled": true,
+        "start": "14:30",
+        "end": "20:55"
+      },
+      "max_trades_per_session": 3,
+      "cooldown_bars": 3,
+      "volatility": {
+        "enabled": true,
+        "atr_window": 14,
+        "min_atr": 6.0
+      }
+    }
+  },
+  "optimization": {
+    "enabled": true,
+    "max_combinations": 48,
+    "parameter_grid": {
+      "trend_renko_size": [12.5, 15.0, 17.5],
+      "entry_renko_size": [4.0, 5.0, 6.0],
+      "min_trend_blocks": [2, 3],
+      "pullback_min_blocks": [2],
+      "pullback_max_blocks": [3, 4],
+      "target_points": [20.0, 24.0, 30.0],
+      "stop_points": [10.0, 12.0, 15.0],
+      "break_even_trigger": [0.0, 10.0],
+      "trailing_enabled": [false, true],
+      "cooldown_bars": [0, 3]
+    }
+  },
+  "validation": {
+    "in_sample_fraction": 0.7,
+    "walk_forward_windows": 3
+  },
+  "reporting": {
+    "save_charts": false,
+    "save_trade_log": true,
+    "save_monthly_stats": true
+  }
+}

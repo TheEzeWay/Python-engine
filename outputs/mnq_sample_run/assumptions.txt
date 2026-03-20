@@ -1,0 +1,4 @@
+Renko bricks are confirmed only from completed 1-minute bars using a deterministic OHLC path assumption.
+Multiple synthetic Renko bricks may form inside one minute, but the engine only acts after that minute closes.
+A valid setup allows only one entry: the first entry-Renko brick back in the trend direction after a 2-to-4 brick pullback.
+No future bars are referenced when creating signals or trades.
