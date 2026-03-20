@@ -1,0 +1,15 @@
+{
+  "total_trades": 0,
+  "win_rate": 0.0,
+  "profit_factor": 0.0,
+  "sharpe": 0.0,
+  "sortino": 0.0,
+  "expectancy": 0.0,
+  "max_drawdown": 0.0,
+  "average_winner": 0.0,
+  "average_loser": 0.0,
+  "long_trades": 0,
+  "short_trades": 0,
+  "long_win_rate": 0.0,
+  "short_win_rate": 0.0
+}

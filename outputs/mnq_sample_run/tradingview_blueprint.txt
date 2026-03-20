@@ -1,0 +1,14 @@
+TradingView / Pine Script blueprint
+=================================
+1. Source timeframe: 1-minute candles.
+2. Rebuild two synthetic Renko state machines from the 1-minute OHLC stream.
+3. Trend Renko size: 12.5 points.
+4. Entry Renko size: 4.0 points.
+5. Trend rule: require >= 2 confirmed trend Renko bricks in one direction.
+6. Pullback rule: require entry Renko pullback between 2 and 3 bricks against the trend.
+7. Trigger: first confirmed entry Renko brick back with the trend; submit order on the close of the same 1-minute bar.
+8. Stops/targets: stop 10.0 points, target 20.0 points.
+9. Break-even: trigger 0.0 points, offset 1.0 points.
+10. Trailing: enabled=False, trigger 14.0, distance 8.0.
+11. Use `barstate.isconfirmed` so alerts fire only after bar close.
+12. Do not use lower-timeframe `request.security()` for signal generation unless you intentionally recreate the same deterministic bar-close state machine.
